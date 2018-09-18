@@ -1,5 +1,5 @@
 #include "heap_sort.h"
-void max_heapify(int* a, int heap_size, int i) //fixes hax heap at subtree with root i
+void max_heapify(int* a, int heap_size, int i) //fixes max heap at subtree with root i
 {
 	int l, r;
 	l = left_child(i);
