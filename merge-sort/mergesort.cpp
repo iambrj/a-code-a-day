@@ -42,11 +42,10 @@ void merge(int* a, int p, int q, int r) // auxillary merge procedure
 
 void merge_sort(int* a, int p, int r)
 {
-	if(p < r) // to make sure that it is not the base case
-	{
+	if(p < r) // to make sure that it is not the base case {
 		int q = (p + r) / 2; // mid point
 		merge_sort(a, p, q); // recursively sort left subarray
 		merge_sort(a, q + 1, r); // recursively sort right subarray
-		merge(a , p, q, r); // merge the sorted subarrays
+		merge(a, p, q, r); // merge the sorted subarrays
 	}
 }

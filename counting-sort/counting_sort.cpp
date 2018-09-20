@@ -1,4 +1,4 @@
-int* counting_sort(int a[], int size, int n)
+int* counting_sort(int a[], int size, int n) // n = max element
 {
 	int i;
 	//array to store sorted elements
