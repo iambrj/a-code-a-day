@@ -1,22 +1,24 @@
 #ifndef DISJOINT_SET
 #define DISJOINT_SET
-#include <list>
 #include <vector>
 #include <iostream> //for display
-struct Node
+typename T
+class Node
 {
-	int key;
+	public:
+		T key;
+		Node* parent;
 };
+typename T
 class disjoint_set
 {
 	private:
-		std::vector< std::list<Node> > rep;
+		vector<Node> parents;
 	public:
-		void make_set(int k);
-		void make_set(Node mk);
-		bool union_set(int x, int y);
-		int find_set(int k);
-		void display() const;
-		void show_last() const;
+		disjoint_set(): count(0) {};
+		void make_set(T mk);
+		bool union_set(T x, T y);
+		Node& find_set(T k);
+		int get_count() const { return roots.size(); }
 };
 #endif

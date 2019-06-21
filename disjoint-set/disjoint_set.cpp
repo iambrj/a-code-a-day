@@ -1,36 +1,19 @@
 #include "disjoint_set.h"
-void disjoint_set::show_last() const
-{
-	std::cout<<rep[0].end()->key<<std::endl;
-}
-void disjoint_set::make_set(Node mk)
-{
-	std::list<Node> l;
-	l.push_back(mk);
-	rep.push_back(l);
-}
-void disjoint_set::make_set(int k)
+typename T
+void disjoint_set::make_set(T k)
 {
 	Node n;
 	n.key = k;
-	disjoint_set::make_set(n);
+	n.parent = &n;
+	roots.push_back(n);
 }
-int disjoint_set::find_set(int k)
+typename T
+Node& disjoint_set::find_set(T k)
 {
-	for(int i = 0; i < rep.size(); i++)
-	{
-		for(std::list<Node>::iterator itr = rep[i].begin(); itr != rep[i].end(); itr++)
-		{
-			if(itr->key == k)
-			{
-				itr = rep[i].begin();
-				return itr->key;
-			}
-		}
-	}
-	return -1;
+	if()
 }
-bool disjoint_set::union_set(int x, int y)
+typename T
+bool disjoint_set::union_set(T x, T y)
 {
 	int i, j;
 	for(i = 0; i < rep.size(); i++)
@@ -57,13 +40,4 @@ bool disjoint_set::union_set(int x, int y)
 		rep.erase(itr);
 	}
 	return true;
-}
-void disjoint_set::display() const
-{
-	for(int i = 0; i < rep.size(); i++)
-	{
-		for(std::list<Node>::const_iterator itr = rep[i].begin(); itr != rep[i].end(); itr++)
-			std::cout<<itr->key<<"->";
-		std::cout<<"NULL"<<std::endl;
-	}
 }
